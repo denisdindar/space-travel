@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px
+  scroll-behavior: smooth;
+
+  @include res(desktop) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size);
+  line-height: 1.5;
+  text-rendering: optimizeSpeed;
+}
+
+a {
+  transition: var(--transition);
+  text-decoration: none;
+  color: inherit;
+
+  // &:link,
+  // &:visited,
+  // &:active,
+  // &:focus {
+  // }
+  // &:hover {
+  // }
+}

@@ -1,0 +1,97 @@
+// Mixin Responsive
+$breakpoints: (
+  "phone": 375px,
+  "tablet": 768px,
+  "laptop": 1024px,
+  "desktop": 1280px,
+) !default;
+
+@mixin res($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Font-Family
+@mixin font(
+  $name,
+  $size: null,
+  $weight: null,
+  $color: null,
+  $style: null,
+  $lh: null
+) {
+  font-family: $name;
+  @if $size {
+    font-size: $size;
+  }
+  @if $weight {
+    font-weight: $weight;
+  }
+  @if $color {
+    color: $color;
+  }
+  @if $style {
+    font-style: $style;
+  }
+  @if $lh {
+    line-height: $lh;
+  }
+}
+
+// Background Elements
+@mixin bg($image, $size, $position: null) {
+  background-image: url($image);
+  background-repeat: no-repeat;
+  background-size: $size;
+  background-position: $position;
+}
+
+// Pseudo Elements
+@mixin pseudo($top, $left, $width, $height) {
+  content: "";
+  position: absolute;
+  top: $top;
+  left: $left;
+  width: $width;
+  height: $height;
+}
+
+// Flex
+@mixin flex($direction, $justify: null, $align: null, $wrap: null) {
+  display: flex;
+  flex-direction: $direction;
+  @if $justify {
+    justify-content: $justify;
+  }
+  @if $align {
+    align-items: $align;
+  }
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+}
+
+// Center with Margin
+@mixin center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Placeholders for spacing
+%space-big-bottom {
+  margin-bottom: 4rem;
+}
+%space-small-bottom {
+  margin-bottom: 3.3rem;
+}
+
+//Placeholders for pseudo elements
+%pseudo-border {
+  @include pseudo(16px, -3px, 105%, 0.8rem);
+  border-radius: 10px;
+  opacity: 0.3;
+  z-index: -1;
+}
