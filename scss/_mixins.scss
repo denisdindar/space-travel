@@ -1,4 +1,4 @@
-// Mixin Responsive
+// Responsive Breakpoints
 $breakpoints: (
   "phone": 375px,
   "tablet": 768px,
@@ -15,14 +15,7 @@ $breakpoints: (
 }
 
 // Font-Family
-@mixin font(
-  $name,
-  $size: null,
-  $weight: null,
-  $color: null,
-  $style: null,
-  $lh: null
-) {
+@mixin font($name, $size: null, $weight: null, $color: null) {
   font-family: $name;
   @if $size {
     font-size: $size;
@@ -32,12 +25,6 @@ $breakpoints: (
   }
   @if $color {
     color: $color;
-  }
-  @if $style {
-    font-style: $style;
-  }
-  @if $lh {
-    line-height: $lh;
   }
 }
 
@@ -50,48 +37,41 @@ $breakpoints: (
 }
 
 // Pseudo Elements
-@mixin pseudo($top, $left, $width, $height) {
+@mixin pseudo($width, $height) {
   content: "";
+  display: block;
   position: absolute;
-  top: $top;
-  left: $left;
   width: $width;
   height: $height;
 }
 
-// Flex
-@mixin flex($direction, $justify: null, $align: null, $wrap: null) {
+// Flexbox
+@mixin flex($params: null) {
   display: flex;
-  flex-direction: $direction;
-  @if $justify {
-    justify-content: $justify;
+  $justify-content: null;
+  $align-items: null;
+  @each $value in $params {
+    @if $value == "wrap" {
+      flex-wrap: wrap;
+    } @else if $value == "row" {
+      flex-direction: row;
+    } @else if $value == "column" {
+      flex-direction: column;
+    } @else if index(space-between space-around, $value) {
+      $justify-content: $value;
+    } @else if index(baseline stretch, $value) {
+      $align-items: $value;
+    } @else if index(flex-start center flex-end, $value) {
+      @if $justify-content {
+        $align-items: $value;
+      } @else {
+        $justify-content: $value;
+        @if not $align-items {
+          $align-items: $value;
+        }
+      }
+    }
   }
-  @if $align {
-    align-items: $align;
-  }
-  @if $wrap {
-    flex-wrap: $wrap;
-  }
-}
-
-// Center with Margin
-@mixin center {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// Placeholders for spacing
-%space-big-bottom {
-  margin-bottom: 4rem;
-}
-%space-small-bottom {
-  margin-bottom: 3.3rem;
-}
-
-//Placeholders for pseudo elements
-%pseudo-border {
-  @include pseudo(16px, -3px, 105%, 0.8rem);
-  border-radius: 10px;
-  opacity: 0.3;
-  z-index: -1;
+  justify-content: $justify-content;
+  align-items: $align-items;
 }
