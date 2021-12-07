@@ -1,0 +1,128 @@
+/* Backgrounds */
+.bg {
+  @include bg("../assets/home/background-home-desktop.jpg", cover);
+
+  &--destination {
+    @include bg(
+      "../assets/destination/background-destination-desktop.jpg",
+      cover
+    );
+  }
+
+  &--crew {
+    @include bg("../assets/crew/background-crew-desktop.jpg", cover);
+  }
+
+  &--technology {
+    @include bg(
+      "../assets/technology/background-technology-desktop.jpg",
+      cover
+    );
+  }
+}
+
+/* Layout */
+.container {
+  max-width: 1440px;
+  @include center;
+}
+
+/* Header */
+.header {
+  @include flex(row, space-between, center);
+  height: 9.6rem;
+  margin-top: 4rem;
+
+  &__logo {
+    width: 4.8rem;
+    height: 4.8rem;
+    @include ml(5.5rem);
+  }
+}
+
+/* Navigation */
+.nav {
+  @include flex(row, center, center);
+  width: 830px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(81.5485px);
+  position: relative;
+
+  &::before {
+    @include pseudo(47.3rem, 1px);
+    top: 4.75rem;
+    left: -44.2rem;
+    background-color: $color-white;
+    opacity: 0.25;
+    z-index: 1;
+  }
+
+  &__item {
+    @include flex(null, null, center);
+    @include font($font-nav, 1.6rem);
+    letter-spacing: 0.27rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    height: 9.3rem;
+    margin-right: 4.8rem;
+    transition: background $transition-duration;
+    /* underline effect */
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      )
+      bottom/0% 3px no-repeat;
+
+    &:hover {
+      background-size: 100% 3px;
+    }
+
+    & span {
+      font-weight: bold;
+      padding-right: 0.6rem;
+    }
+
+    &.active {
+      background: linear-gradient(
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 1)
+        )
+        bottom/100% 3px no-repeat;
+    }
+  }
+}
+
+/* Sections */
+
+.section {
+  width: 600px;
+  min-height: 30vh;
+  border: 1px solid red;
+  transition: all 1s;
+}
+
+.home {
+  display: none;
+  opacity: 0;
+}
+
+.destination {
+  display: none;
+  opacity: 0;
+}
+
+.crew {
+  display: none;
+  opacity: 0;
+}
+
+.technology {
+  display: none;
+  opacity: 0;
+}
+
+/* Utils */
+.visible {
+  display: block;
+  opacity: 1;
+}

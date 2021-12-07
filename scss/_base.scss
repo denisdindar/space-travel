@@ -1,37 +1,58 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 html {
   font-size: 62.5%; // 1rem = 10px
   scroll-behavior: smooth;
-
-  @include res(desktop) {
-    font-size: 50%;
-  }
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: var(--font-size);
-  line-height: 1.5;
+  @include font($font-body, $font-size, 400, $color-white);
+  width: 100%;
+  max-height: 100vh;
   text-rendering: optimizeSpeed;
 }
 
 a {
-  transition: var(--transition);
   text-decoration: none;
-  color: inherit;
+}
 
-  // &:link,
-  // &:visited,
-  // &:active,
-  // &:focus {
-  // }
-  // &:hover {
-  // }
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h6 {
+  @include font($font-heading);
+}
+
+h1 {
+  font-size: 15rem;
+}
+
+h2 {
+  font-size: 10rem;
+}
+
+h3 {
+  font-size: 5.6rem;
+}
+
+h4 {
+  font-size: 3.2rem;
+}
+
+h6 {
+  font-size: 2.8rem;
+}
+
+h5 {
+  @include font($font-nav, 2.8rem);
+  letter-spacing: 0.475rem;
+
+  & .sub {
+    font-size: 1.4rem;
+    letter-spacing: 0.235rem;
+  }
+}
+
+p {
+  line-height: 2;
 }

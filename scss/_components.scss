@@ -1,0 +1,46 @@
+/* Button */
+.btn {
+  @include font($font-heading, 3.2rem);
+  letter-spacing: 0.2rem;
+  color: $color-dark;
+  background-color: $color-white;
+  width: 27.4rem;
+  height: 27.4rem;
+  border-radius: 100%;
+  cursor: pointer;
+
+  &--numbers {
+    width: 8rem;
+    height: 8rem;
+    color: $color-white;
+    background-color: transparent;
+    border: 1px solid rgba($color: #000000, $alpha: 0.25);
+    transition: opacity $transition-duration;
+
+    &:hover {
+      border: 1px solid $color-white;
+    }
+
+    &.active {
+      border: 1px solid $color-white;
+      color: $color-dark;
+      background-color: $color-white;
+    }
+  }
+
+  &--dots {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: $color-white;
+    opacity: 0.175;
+    transition: opacity $transition-duration;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

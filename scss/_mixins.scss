@@ -46,32 +46,34 @@ $breakpoints: (
 }
 
 // Flexbox
-@mixin flex($params: null) {
+@mixin flex(
+  $direction: null,
+  $justify-content: null,
+  $align-items: null,
+  $wrap: null
+) {
   display: flex;
-  $justify-content: null;
-  $align-items: null;
-  @each $value in $params {
-    @if $value == "wrap" {
-      flex-wrap: wrap;
-    } @else if $value == "row" {
-      flex-direction: row;
-    } @else if $value == "column" {
-      flex-direction: column;
-    } @else if index(space-between space-around, $value) {
-      $justify-content: $value;
-    } @else if index(baseline stretch, $value) {
-      $align-items: $value;
-    } @else if index(flex-start center flex-end, $value) {
-      @if $justify-content {
-        $align-items: $value;
-      } @else {
-        $justify-content: $value;
-        @if not $align-items {
-          $align-items: $value;
-        }
-      }
-    }
-  }
+  flex-direction: $direction;
   justify-content: $justify-content;
   align-items: $align-items;
+  flex-wrap: $wrap;
+}
+
+// Centering with margin
+@mixin center() {
+  margin: 0 auto;
+}
+
+// Margins
+@mixin mt($top) {
+  margin-top: $top;
+}
+@mixin mb($bottom) {
+  margin-bottom: $bottom;
+}
+@mixin ml($left) {
+  margin-left: $left;
+}
+@mixin mr($right) {
+  margin-right: $right;
 }
