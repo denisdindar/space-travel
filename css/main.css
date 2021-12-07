@@ -408,27 +408,12 @@ p {
   width: 600px;
   min-height: 30vh;
   border: 1px solid red;
+}
+
+.technology, .crew, .destination, .home {
+  display: none;
+  opacity: 0;
   transition: all 1s;
-}
-
-.home {
-  display: none;
-  opacity: 0;
-}
-
-.destination {
-  display: none;
-  opacity: 0;
-}
-
-.crew {
-  display: none;
-  opacity: 0;
-}
-
-.technology {
-  display: none;
-  opacity: 0;
 }
 
 /* Utils */

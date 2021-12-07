@@ -98,27 +98,28 @@
   width: 600px;
   min-height: 30vh;
   border: 1px solid red;
+}
+
+%section-hidden {
+  display: none;
+  opacity: 0;
   transition: all 1s;
 }
 
 .home {
-  display: none;
-  opacity: 0;
+  @extend %section-hidden;
 }
 
 .destination {
-  display: none;
-  opacity: 0;
+  @extend %section-hidden;
 }
 
 .crew {
-  display: none;
-  opacity: 0;
+  @extend %section-hidden;
 }
 
 .technology {
-  display: none;
-  opacity: 0;
+  @extend %section-hidden;
 }
 
 /* Utils */
