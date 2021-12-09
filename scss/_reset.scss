@@ -4,6 +4,8 @@
 ::before,
 ::after {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 // 1. Add text decoration inheritance in all browsers (opinionated).
@@ -24,7 +26,7 @@
 // 6. Prevent adjustments of font size after orientation changes in iOS.
 :where(:root) {
   cursor: default; // 1
-  line-height: 1.5; // 2
+  // line-height: 1.5; // 2
   overflow-wrap: break-word; //3
   -moz-tab-size: 4; // 4
   tab-size: 4; // 4
@@ -41,10 +43,10 @@
 
 // Correct the font size and margin on `h1` elements within `section` and
 // `article` contexts in Chrome, Edge, Firefox, and Safari.
-:where(h1) {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
+// :where(h1) {
+//   font-size: 2em;
+//   margin: 0.67em 0;
+// }
 
 //Grouping content
 //Remove the margin on nested lists in Chrome, Edge, and Safari.
@@ -177,51 +179,51 @@
 }
 
 // Add the correct styles in Safari.
-:where(dialog) {
-  background-color: white;
-  border: solid;
-  color: black;
-  height: -moz-fit-content;
-  height: fit-content;
-  left: 0;
-  margin: auto;
-  padding: 1em;
-  position: absolute;
-  right: 0;
-  width: -moz-fit-content;
-  width: fit-content;
-}
+// :where(dialog) {
+//   background-color: white;
+//   border: solid;
+//   color: black;
+//   height: -moz-fit-content;
+//   height: fit-content;
+//   left: 0;
+//   margin: auto;
+//   padding: 1em;
+//   position: absolute;
+//   right: 0;
+//   width: -moz-fit-content;
+//   width: fit-content;
+// }
 
-:where(dialog:not([open])) {
-  display: none;
-}
+// :where(dialog:not([open])) {
+//   display: none;
+// }
 
 // Add the correct display in Safari.
 :where(details > summary:first-of-type) {
   display: list-item;
 }
 
-// Change the cursor on busy elements in all browsers (opinionated).
-:where([aria-busy="true" i]) {
-  cursor: progress;
-}
+// // Change the cursor on busy elements in all browsers (opinionated).
+// :where([aria-busy="true" i]) {
+//   cursor: progress;
+// }
 
 // Change the cursor on disabled, not-editable, or otherwise
 // inoperable elements in all browsers (opinionated).
-:where([aria-disabled="true" i], [disabled]) {
-  cursor: not-allowed;
-}
+// :where([aria-disabled="true" i], [disabled]) {
+//   cursor: not-allowed;
+// }
 
 // Change the display on visually hidden accessible elements
 // in all browsers (opinionated).
-:where([aria-hidden="false" i][hidden]) {
-  display: initial;
-}
+// :where([aria-hidden="false" i][hidden]) {
+//   display: initial;
+// }
 
-:where([aria-hidden="false" i][hidden]:not(:focus)) {
-  clip: rect(0, 0, 0, 0);
-  position: absolute;
-}
+// :where([aria-hidden="false" i][hidden]:not(:focus)) {
+//   clip: rect(0, 0, 0, 0);
+//   position: absolute;
+// }
 
 // 1. Change the inconsistent appearance in all browsers (opinionated).
 // 2. Add typography inheritance in all browsers (opinionated).
@@ -235,17 +237,17 @@
 }
 
 // Change the inconsistent appearance in all browsers (opinionated).
-:where(select) {
-  -webkit-appearance: none;
-  appearance: none;
-  background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E")
-    no-repeat right center / 1em;
-  border-radius: 0;
-  padding-right: 1em;
-}
+// :where(select) {
+//   -webkit-appearance: none;
+//   appearance: none;
+//   background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='4'%3E%3Cpath d='M4 0h6L7 4'/%3E%3C/svg%3E")
+//     no-repeat right center / 1em;
+//   border-radius: 0;
+//   padding-right: 1em;
+// }
 
 // Restrict sizing to the page width in all browsers (opinionated).
-:where(iframe, img, input, video, select, textarea) {
-  height: auto;
-  max-width: 100%;
-}
+// :where(iframe, img, input, video, select, textarea) {
+//   height: auto;
+//   max-width: 100%;
+// }

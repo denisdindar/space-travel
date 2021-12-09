@@ -24,36 +24,95 @@
     <title>Space Travel</title>
   </head>
   <body class="bg">
-    <!-- HEADER -->
-    <header class="header">
-      <!-- Logo -->
-      <img
-        class="header__logo"
-        src="assets/shared/logo.svg"
-        alt="Space Travel"
-      />
-      <!-- Navigation -->
-      <nav>
-        <ul id="mainNav" class="nav">
-          <li class="nav__item active" data-section="home">
-            <span>00</span> home
-          </li>
-          <li class="nav__item" data-section="destination">
-            <span>01</span> destination
-          </li>
-          <li class="nav__item" data-section="crew"><span>02</span> crew</li>
-          <li class="nav__item" data-section="technology">
-            <span>03</span> technology
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main>
-      <section class="section home visible">Home</section>
-      <section class="section destination">Destination</section>
-      <section class="section crew">Crew</section>
-      <section class="section technology">Technology</section>
-    </main>
+    <div class="container">
+      <!-- HEADER -->
+      <header class="header">
+        <!-- Logo -->
+        <img
+          class="header__logo"
+          src="assets/shared/logo.svg"
+          alt="Space Travel"
+        />
+        <!-- Navigation -->
+        <nav>
+          <ul id="mainNav" class="nav">
+            <li class="nav__item active" data-section="home">
+              <span>00</span> home
+            </li>
+            <li class="nav__item" data-section="destination">
+              <span>01</span> destination
+            </li>
+            <li class="nav__item" data-section="crew"><span>02</span> crew</li>
+            <li class="nav__item" data-section="technology">
+              <span>03</span> technology
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <!-- HOME SECTION -->
+        <section class="section home visible">
+          <div class="home__container">
+            <div class="home__content">
+              <h5 class="home__title">SO, YOU WANT TO TRAVEL TO</h5>
+              <h1 class="home__subtitle">SPACE</h1>
+              <p class="home__text">
+                Let’s face it; if you want to go to space, you might as well
+                genuinely go to outer space and not hover kind of on the edge of
+                it. Well sit back, and relax because we’ll give you a truly out
+                of this world experience!
+              </p>
+            </div>
+            <div class="home__button">
+              <button class="btn">EXPLORE</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- DESTINATION SECTION -->
+        <section class="section destination">
+          <div class="destination__container">
+            <h5 class="destination__title">
+              <span>01</span>Pick your destination
+            </h5>
+            <div class="destination__content">
+              <div class="destination__img">
+                <img src="/assets/destination/image-moon.png" alt="Moon" />
+              </div>
+              <!-- Tabbed Content Area -->
+              <div class="destination__tabs">
+                <nav>
+                  <ul class="tabs">
+                    <li class="tabs__item">Moon</li>
+                    <li class="tabs__item">Mars</li>
+                    <li class="tabs__item">Europa</li>
+                    <li class="tabs__item">Titan</li>
+                  </ul>
+                </nav>
+                <h2 class="tabs__title">Moon</h2>
+                <p class="tabs__text">
+                  See our planet as you’ve never seen it before. A perfect
+                  relaxing trip away to help regain perspective and come back
+                  refreshed. While you’re there, take in some history by
+                  visiting the Luna 2 and Apollo 11 landing sites.
+                </p>
+                <div class="tabs__details">
+                  <div class="tabs__details-distance">
+                    <span>Avg. Distance</span> 384,400 km
+                  </div>
+                  <div class="tabs__details-time">
+                    <span>Est. Travel Time</span> 3 days
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section crew">Crew</section>
+        <section class="section technology">Technology</section>
+      </main>
+    </div>
     <script src="js/app.js" defers></script>
   </body>
 </html>

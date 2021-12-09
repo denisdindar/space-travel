@@ -6,8 +6,50 @@
   background-color: $color-white;
   width: 27.4rem;
   height: 27.4rem;
+  border: 0;
   border-radius: 100%;
   cursor: pointer;
+  position: relative;
+
+  &::before,
+  &::after {
+    @include pseudo(27rem, 27rem);
+    top: 0;
+    left: 0;
+    background-color: #24262f;
+    border-radius: 100%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 2s, transform $transition-duration;
+  }
+
+  &:before {
+    background-color: transparent;
+    border: 1px solid $color-light;
+    z-index: 1;
+  }
+
+  @keyframes btnHover {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.8);
+      opacity: 0.25;
+    }
+  }
+
+  &:hover::before {
+    transform-origin: center;
+    animation: btnHover 1s infinite ease-out;
+  }
+
+  &:hover::after {
+    transform: scale(1.5);
+    transform-origin: center;
+    opacity: 0.75;
+  }
 
   &--numbers {
     width: 8rem;
