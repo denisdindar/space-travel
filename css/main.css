@@ -164,6 +164,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--font-size);
   font-weight: 400;
+  background-color: var(--color-dark);
   color: var(--color-light);
   width: 100%;
   max-height: 100vh;
@@ -230,7 +231,7 @@ h5 .sub {
   cursor: pointer;
   position: relative;
 }
-.btn::before, .btn::after {
+.btn--main::before, .btn--main::after {
   content: "";
   display: block;
   position: absolute;
@@ -244,7 +245,7 @@ h5 .sub {
   opacity: 0;
   transition: opacity 2s, transform var(--transition-duration);
 }
-.btn:before {
+.btn--main:before {
   background-color: transparent;
   border: 1px solid var(--color-light);
   z-index: 1;
@@ -259,11 +260,11 @@ h5 .sub {
     opacity: 0.25;
   }
 }
-.btn:hover::before {
+.btn--main:hover::before {
   transform-origin: center;
   animation: btnHover 1s infinite ease-out;
 }
-.btn:hover::after {
+.btn--main:hover::after {
   transform: scale(1.5);
   transform-origin: center;
   opacity: 0.75;
@@ -273,8 +274,9 @@ h5 .sub {
   height: 8rem;
   color: var(--color-white);
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  transition: opacity var(--transition-duration);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: border var(--transition-duration);
 }
 .btn--numbers:hover {
   border: 1px solid var(--color-white);
@@ -290,6 +292,8 @@ h5 .sub {
   color: var(--color-white);
   opacity: 0.175;
   transition: opacity var(--transition-duration);
+  margin-right: 2.4rem;
+  font-size: 100%;
 }
 .btn--dots:hover {
   opacity: 0.5;
@@ -298,7 +302,82 @@ h5 .sub {
   opacity: 1;
 }
 
+/* Tabs in Destination Section*/
+.tabs {
+  display: flex;
+  padding-bottom: 3.7rem;
+}
+.tabs__item {
+  font-family: var(--font-nav);
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.235rem;
+  text-transform: uppercase;
+  margin-right: 3.2rem;
+  padding-bottom: 1.5rem;
+  transition: background var(--transition-duration);
+  cursor: pointer;
+  /* underline effect */
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)) bottom/0% 3px no-repeat;
+}
+.tabs__item:hover {
+  background-size: 100% 3px;
+}
+.tabs__item.active {
+  background: linear-gradient(white, white) bottom/100% 3px no-repeat;
+  color: var(--color-white);
+}
+.tabs__title {
+  text-transform: uppercase;
+  padding-bottom: 1.7rem;
+}
+.tabs__text {
+  line-height: 1.7;
+  position: relative;
+  margin-bottom: 9rem;
+}
+.tabs__text::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 44.4rem;
+  height: 1px;
+  background-color: #383b4b;
+  bottom: -6rem;
+  left: 0;
+}
+.tabs__details {
+  display: flex;
+  flex-direction: row;
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+.tabs__details .tabs__details--time span, .tabs__details--time .tabs__details span, .tabs__details .tabs__details--distance span, .tabs__details--distance .tabs__details span {
+  font-family: var(--font-nav);
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.235rem;
+  color: var(--color-light);
+  padding-bottom: 1.3rem;
+}
+.tabs__details--distance {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8rem;
+}
+.tabs__details--time {
+  display: flex;
+  flex-direction: column;
+}
 /* Backgrounds */
+.bg--technology, .bg--crew, .bg--destination, .bg {
+  transition: background 1s;
+}
+
 .bg {
   background-image: url("../assets/home/background-home-desktop.jpg");
   background-repeat: no-repeat;
@@ -322,7 +401,7 @@ h5 .sub {
 
 /* Layout */
 .container {
-  max-width: 1440px;
+  max-width: 144rem;
   margin: 0 auto;
 }
 
@@ -392,7 +471,6 @@ h5 .sub {
 /* Sections */
 .section {
   width: 100%;
-  border: 1px solid red;
 }
 
 .technology, .crew, .destination, .home {
@@ -406,6 +484,7 @@ h5 .sub {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  padding-bottom: 7rem;
 }
 .home__content {
   padding-right: 39rem;
@@ -417,24 +496,28 @@ h5 .sub {
   line-height: 2;
 }
 
-.destination__container {
+.technology__container, .crew__container, .destination__container {
   margin: 0 16.5rem;
   padding-top: 7.5rem;
 }
-.destination__title {
+
+.technology__title, .crew__title, .destination__title {
   padding-bottom: 6rem;
   text-transform: uppercase;
 }
-.destination__title span {
+
+.technology__title span, .crew__title span, .destination__title span {
   padding-right: 2.5rem;
   font-weight: bold;
   opacity: 0.25;
 }
+
 .destination__content {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 7rem;
 }
 .destination__img {
   max-width: 100%;
@@ -442,6 +525,99 @@ h5 .sub {
   padding-right: 15.7rem;
   padding-top: 3.7rem;
 }
+
+.crew__container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding-top: 7.5rem;
+}
+.crew__title {
+  padding-bottom: 15rem;
+}
+.crew__info {
+  min-width: 50%;
+}
+.crew__job {
+  text-transform: uppercase;
+  opacity: 0.5;
+  padding-bottom: 1.5rem;
+}
+.crew__name {
+  text-transform: uppercase;
+  padding-bottom: 2.7rem;
+}
+.crew__bio {
+  color: var(--color-light);
+  line-height: 1.77;
+  width: 44rem;
+  padding-bottom: 11.5rem;
+}
+.crew__img {
+  width: 100%;
+  height: auto;
+  align-self: flex-end;
+  transform: translateX(8rem);
+}
+.crew__img img {
+  max-width: 90%;
+  height: auto;
+}
+
+.technology__container {
+  margin: 0 auto;
+}
+.technology__title {
+  padding-left: 16.3rem;
+}
+.technology__wrapper {
+  padding-left: 16.3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-bottom: 7rem;
+}
+.technology__content {
+  display: flex;
+  flex-direction: row;
+  justify-content: mull;
+  align-items: center;
+}
+.technology__numbers {
+  display: flex;
+  flex-direction: column;
+  margin-right: 8rem;
+  list-style: none;
+}
+.technology__item {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.technology__article--sub {
+  font-family: var(--font-nav);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-light);
+  text-transform: uppercase;
+  letter-spacing: 0.27rem;
+  padding-bottom: 1.1rem;
+}
+.technology__article--title {
+  text-transform: uppercase;
+  padding-bottom: 1.7rem;
+}
+.technology__article--text {
+  max-width: 44.4rem;
+  line-height: 1.77;
+  color: var(--color-light);
+}
+.technology__img img {
+  max-width: 100%;
+  height: auto;
+}
+
 @keyframes visible {
   from {
     opacity: 0;

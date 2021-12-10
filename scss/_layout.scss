@@ -1,16 +1,23 @@
 /* Backgrounds */
+%bg-transition {
+  transition: background 1s;
+}
+
 .bg {
   @include bg("../assets/home/background-home-desktop.jpg", cover);
+  @extend %bg-transition;
 
   &--destination {
     @include bg(
       "../assets/destination/background-destination-desktop.jpg",
       cover
     );
+    @extend %bg-transition;
   }
 
   &--crew {
     @include bg("../assets/crew/background-crew-desktop.jpg", cover);
+    @extend %bg-transition;
   }
 
   &--technology {
@@ -18,12 +25,14 @@
       "../assets/technology/background-technology-desktop.jpg",
       cover
     );
+    @extend %bg-transition;
   }
 }
 
 /* Layout */
 .container {
-  max-width: 1440px;
+  max-width: 144rem;
+  // min-height: 90rem;
   @include center;
 }
 
@@ -98,7 +107,7 @@
 
 .section {
   width: 100%;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 %section-hidden {
@@ -112,6 +121,7 @@
     margin: 0 16.5rem;
     padding-top: 25rem;
     @include flex(row, space-between, flex-end);
+    padding-bottom: 7rem;
   }
 
   &__content {
@@ -128,27 +138,40 @@
   }
 }
 
+%section-container {
+  margin: 0 16.5rem;
+  padding-top: 7.5rem;
+}
+
+%section-title {
+  padding-bottom: 6rem;
+  text-transform: uppercase;
+}
+
+%section-title-span {
+  padding-right: 2.5rem;
+  font-weight: bold;
+  opacity: 0.25;
+}
+
 .destination {
   @extend %section-hidden;
 
   &__container {
-    margin: 0 16.5rem;
-    padding-top: 7.5rem;
+    @extend %section-container;
   }
 
   &__title {
-    padding-bottom: 6rem;
-    text-transform: uppercase;
+    @extend %section-title;
 
     & span {
-      padding-right: 2.5rem;
-      font-weight: bold;
-      opacity: 0.25;
+      @extend %section-title-span;
     }
   }
 
   &__content {
     @include flex(row, flex-start, center);
+    padding-bottom: 7rem;
   }
 
   &__img {
@@ -157,17 +180,131 @@
     padding-right: 15.7rem;
     padding-top: 3.7rem;
   }
-
-  &__tabs {
-  }
 }
 
 .crew {
   @extend %section-hidden;
+
+  &__container {
+    @extend %section-container;
+    position: relative;
+    @include flex(row);
+    padding-top: 7.5rem;
+  }
+
+  &__title {
+    @extend %section-title;
+    padding-bottom: 15rem; // title inside flex
+
+    & span {
+      @extend %section-title-span;
+    }
+  }
+
+  &__info {
+    min-width: 50%;
+  }
+
+  &__job {
+    text-transform: uppercase;
+    opacity: 0.5;
+    padding-bottom: 1.5rem;
+  }
+
+  &__name {
+    text-transform: uppercase;
+    padding-bottom: 2.7rem;
+  }
+
+  &__bio {
+    color: $color-light;
+    line-height: 1.77;
+    width: 44rem;
+    padding-bottom: 11.5rem;
+  }
+
+  &__dots {
+    // margin-bottom: 4.3rem;
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    align-self: flex-end;
+    // padding-top: 3rem;
+    transform: translateX(8rem);
+
+    & img {
+      max-width: 90%;
+      height: auto;
+    }
+  }
 }
 
 .technology {
   @extend %section-hidden;
+
+  &__container {
+    @extend %section-container;
+    margin: 0 auto;
+  }
+
+  &__title {
+    @extend %section-title;
+    padding-left: 16.3rem;
+
+    & span {
+      @extend %section-title-span;
+    }
+  }
+
+  &__wrapper {
+    padding-left: 16.3rem;
+    @include flex(row, space-between);
+    padding-bottom: 7rem;
+  }
+
+  &__content {
+    @include flex(row, mull, center);
+  }
+
+  &__numbers {
+    @include flex(column);
+    margin-right: 8rem;
+    list-style: none;
+  }
+
+  &__item {
+    @include flex(row, center, center);
+  }
+
+  &__article {
+    &--sub {
+      @include font($font-nav, 1.6rem, 400, $color-light);
+      text-transform: uppercase;
+      letter-spacing: 0.27rem;
+      padding-bottom: 1.1rem;
+    }
+
+    &--title {
+      text-transform: uppercase;
+      padding-bottom: 1.7rem;
+    }
+    &--text {
+      max-width: 44.4rem;
+      line-height: 1.77;
+      color: $color-light;
+    }
+  }
+
+  &__img {
+    // margin-bottom: 7rem;
+
+    & img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
 }
 
 @keyframes visible {

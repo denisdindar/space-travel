@@ -5,6 +5,7 @@ html {
 
 body {
   @include font($font-body, $font-size, 400);
+  background-color: $color-dark;
   color: $color-light;
   width: 100%;
   max-height: 100vh;

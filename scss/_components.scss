@@ -11,44 +11,46 @@
   cursor: pointer;
   position: relative;
 
-  &::before,
-  &::after {
-    @include pseudo(27rem, 27rem);
-    top: 0;
-    left: 0;
-    background-color: #24262f;
-    border-radius: 100%;
-    z-index: -1;
-    opacity: 0;
-    transition: opacity 2s, transform $transition-duration;
-  }
-
-  &:before {
-    background-color: transparent;
-    border: 1px solid $color-light;
-    z-index: 1;
-  }
-
-  @keyframes btnHover {
-    from {
-      transform: scale(1);
-      opacity: 1;
+  &--main {
+    &::before,
+    &::after {
+      @include pseudo(27rem, 27rem);
+      top: 0;
+      left: 0;
+      background-color: #24262f;
+      border-radius: 100%;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 2s, transform $transition-duration;
     }
-    to {
-      transform: scale(1.8);
-      opacity: 0.25;
+
+    &:before {
+      background-color: transparent;
+      border: 1px solid $color-light;
+      z-index: 1;
     }
-  }
 
-  &:hover::before {
-    transform-origin: center;
-    animation: btnHover 1s infinite ease-out;
-  }
+    @keyframes btnHover {
+      from {
+        transform: scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: scale(1.8);
+        opacity: 0.25;
+      }
+    }
 
-  &:hover::after {
-    transform: scale(1.5);
-    transform-origin: center;
-    opacity: 0.75;
+    &:hover::before {
+      transform-origin: center;
+      animation: btnHover 1s infinite ease-out;
+    }
+
+    &:hover::after {
+      transform: scale(1.5);
+      transform-origin: center;
+      opacity: 0.75;
+    }
   }
 
   &--numbers {
@@ -56,8 +58,9 @@
     height: 8rem;
     color: $color-white;
     background-color: transparent;
-    border: 1px solid rgba($color: #000000, $alpha: 0.25);
-    transition: opacity $transition-duration;
+    margin-bottom: 3rem;
+    border: 1px solid rgba($color: #ffffff, $alpha: 0.25);
+    transition: border $transition-duration;
 
     &:hover {
       border: 1px solid $color-white;
@@ -76,6 +79,8 @@
     color: $color-white;
     opacity: 0.175;
     transition: opacity $transition-duration;
+    margin-right: 2.4rem;
+    font-size: 100%;
 
     &:hover {
       opacity: 0.5;
@@ -83,6 +88,91 @@
 
     &.active {
       opacity: 1;
+    }
+  }
+}
+
+/* Tabs in Destination Section*/
+.tabs {
+  @include flex();
+  padding-bottom: 3.7rem;
+
+  &__item {
+    @include font($font-nav, 1.4rem, 400);
+    letter-spacing: 0.235rem;
+    text-transform: uppercase;
+    margin-right: 3.2rem;
+    padding-bottom: 1.5rem;
+    transition: background $transition-duration;
+    cursor: pointer;
+    /* underline effect */
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      )
+      bottom/0% 3px no-repeat;
+
+    &:hover {
+      background-size: 100% 3px;
+    }
+
+    &.active {
+      background: linear-gradient(
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 1)
+        )
+        bottom/100% 3px no-repeat;
+      color: $color-white;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    padding-bottom: 1.7rem;
+  }
+
+  &__text {
+    line-height: 1.7;
+    position: relative;
+    margin-bottom: 9rem;
+
+    &::after {
+      @include pseudo(44.4rem, 1px);
+      background-color: #383b4b;
+      bottom: -6rem;
+      left: 0;
+    }
+  }
+
+  &__details {
+    @include flex(row);
+    @include font($font-heading, 2.8rem, 400);
+    color: $color-white;
+    text-transform: uppercase;
+
+    %span-text {
+      @include font($font-nav, 1.4rem, 400);
+      text-transform: uppercase;
+      letter-spacing: 0.235rem;
+      color: $color-light;
+      padding-bottom: 1.3rem;
+    }
+
+    &--distance {
+      @include flex(column);
+      padding-right: 8rem;
+
+      span {
+        @extend %span-text;
+      }
+    }
+
+    &--time {
+      @include flex(column);
+
+      span {
+        @extend %span-text;
+      }
     }
   }
 }
