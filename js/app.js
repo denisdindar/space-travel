@@ -1,6 +1,3 @@
-// Main navigation onClick Events
-//--------------------------------
-
 // select elements
 const nav = document.querySelector("#mainNav");
 const items = nav.querySelectorAll(".nav__item");
@@ -97,3 +94,22 @@ changeActive(nav, item, items);
 changeActive(tab, tabItem, tabItems);
 changeActive(dot, dotItem, dotItems);
 changeActive(nmbr, nmbrItem, nmbrItems);
+
+// FETCHING DATA
+// ------------------------------
+fetch("data.json")
+  .then((response) => response.json())
+  .then((responseJson) => {
+    console.log(responseJson);
+  });
+
+// tabs test
+const tabMoon = document.querySelector("#moon");
+const tabMars = document.querySelector("#mars");
+const tabEurpa = document.querySelector("#europa");
+const tabTitan = document.querySelector("#titan");
+
+let changeTitle = response.destinations[1].name;
+tabMars.addEventListener("click", () => {
+  document.querySelector(".tabs__title").innerHTML = changeTitle;
+});

@@ -17,6 +17,6 @@
 
 # Avoid my files
 *.map
-*.json
+package.json
 *.txt
 # css/main.css
