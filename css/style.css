@@ -1659,6 +1659,11 @@ h5 .sub {
   color: var(--color-light);
   max-width: 47rem;
 }
+@media (max-width: 1024px) {
+  .technology__article--text {
+    margin-right: 0;
+  }
+}
 @media (max-width: 768px) {
   .technology__article--text {
     margin: 0 2.5rem;

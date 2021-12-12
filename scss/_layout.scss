@@ -585,6 +585,10 @@
       color: $color-light;
       max-width: 47rem;
 
+      @include res(laptop) {
+        margin-right: 0;
+      }
+
       @include res(tablet) {
         margin: 0 2.5rem;
       }
