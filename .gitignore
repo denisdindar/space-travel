@@ -19,4 +19,4 @@
 *.map
 package.json
 *.txt
-# css/main.css
+css/main.css

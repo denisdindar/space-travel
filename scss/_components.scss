@@ -11,6 +11,12 @@
   cursor: pointer;
   position: relative;
 
+  @include res(tablet) {
+    width: 15rem;
+    height: 15rem;
+    font-size: 2rem;
+  }
+
   &--main {
     &::before,
     &::after {
@@ -22,6 +28,10 @@
       z-index: -1;
       opacity: 0;
       transition: opacity 2s, transform $transition-duration;
+
+      @include res(tablet) {
+        display: none;
+      }
     }
 
     &:before {
@@ -62,6 +72,12 @@
     border: 1px solid rgba($color: #ffffff, $alpha: 0.25);
     transition: border $transition-duration;
 
+    @include res(tablet) {
+      width: 4rem;
+      height: 4rem;
+      font-size: 1.8rem;
+    }
+
     &:hover {
       border: 1px solid $color-white;
     }
@@ -79,8 +95,17 @@
     color: $color-white;
     opacity: 0.175;
     transition: opacity $transition-duration;
-    margin-right: 2.4rem;
     font-size: 100%;
+
+    @include res(tablet) {
+      width: 1rem;
+      height: 1rem;
+      font-size: 1rem;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 2.4rem;
+    }
 
     &:hover {
       opacity: 0.5;
@@ -97,11 +122,17 @@
   @include flex();
   padding-bottom: 3.7rem;
 
+  @include res(laptop) {
+    @include flex(row, center);
+  }
+
+  @include res(tablet) {
+    padding-bottom: 2rem;
+  }
   &__item {
     @include font($font-nav, 1.4rem, 400);
     letter-spacing: 0.235rem;
     text-transform: uppercase;
-    margin-right: 3.2rem;
     padding-bottom: 1.5rem;
     transition: background $transition-duration;
     cursor: pointer;
@@ -111,6 +142,10 @@
         rgba(255, 255, 255, 0.5)
       )
       bottom/0% 3px no-repeat;
+
+    &:not(:last-of-type) {
+      margin-right: 3.2rem;
+    }
 
     &:hover {
       background-size: 100% 3px;
@@ -136,11 +171,9 @@
     position: relative;
     margin-bottom: 9rem;
 
-    &::after {
-      @include pseudo(44.4rem, 1px);
-      background-color: #383b4b;
-      bottom: -6rem;
-      left: 0;
+    @include res(tablet) {
+      font-size: 1.5rem;
+      margin-bottom: 6rem;
     }
   }
 
@@ -149,6 +182,32 @@
     @include font($font-heading, 2.8rem, 400);
     color: $color-white;
     text-transform: uppercase;
+    position: relative;
+
+    @include res(laptop) {
+      @include flex(row, center);
+    }
+
+    @include res(tablet) {
+      @include flex(column, center, center);
+      font-size: 2.8rem;
+    }
+
+    &::after {
+      @include pseudo(44.4rem, 1px);
+      background-color: #383b4b;
+      top: -2.5rem;
+      left: 0;
+
+      @include res(laptop) {
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      @include res(tablet) {
+        width: 95%;
+      }
+    }
 
     %span-text {
       @include font($font-nav, 1.4rem, 400);
@@ -161,6 +220,11 @@
     &--distance {
       @include flex(column);
       padding-right: 8rem;
+
+      @include res(tablet) {
+        padding-right: 0;
+        padding-bottom: 2rem;
+      }
 
       span {
         @extend %span-text;

@@ -28,14 +28,26 @@ h6 {
 
 h1 {
   font-size: 15rem;
+
+  @include res(tablet) {
+    font-size: 8rem;
+  }
 }
 
 h2 {
   font-size: 10rem;
+
+  @include res(tablet) {
+    font-size: 5.6rem;
+  }
 }
 
 h3 {
   font-size: 5.6rem;
+
+  @include res(tablet) {
+    font-size: 2.4rem;
+  }
 }
 
 h4 {
@@ -50,8 +62,32 @@ h5 {
   @include font($font-nav, 2.8rem, 400);
   letter-spacing: 0.475rem;
 
+  @include res(tablet) {
+    font-size: 1.6rem;
+  }
+
   & .sub {
     font-size: 1.4rem;
     letter-spacing: 0.235rem;
+  }
+}
+
+/* Toggle menu */
+.toggle {
+  position: absolute;
+  top: 3.5rem;
+  right: 3rem;
+  z-index: 9999;
+  cursor: pointer;
+  transition: all 1s;
+
+  &--menu {
+    display: none;
+    @include res(tablet) {
+      display: inline-block;
+    }
+  }
+  &--close {
+    display: none;
   }
 }

@@ -19,7 +19,7 @@
     />
 
     <!-- Style and Javascript Files -->
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <title>Space Travel</title>
   </head>
@@ -34,12 +34,18 @@
           alt="Space Travel"
         />
         <!-- Navigation -->
+
+        <!-- Mobile Icons -->
+<img class="toggle toggle--menu" src="assets/shared/icon-hamburger.svg" alt="Open menu">
+<img class="toggle toggle--close" src="assets/shared/icon-close.svg" alt="Open menu">
+
+
         <nav>
-          <ul id="mainNav" class="nav">
+          <ul id="nav" class="nav">
             <li class="nav__item active" data-section="home">
               <span>00</span> home
             </li>
-            <li class="nav__item" data-section="destination">
+            <li class="nav__item" data-section="destination" id="destination">
               <span>01</span> destination
             </li>
             <li class="nav__item" data-section="crew"><span>02</span> crew</li>
@@ -54,17 +60,21 @@
         <section class="section home visible">
           <div class="home__container">
             <div class="home__content">
-              <h5 class="home__title">SO, YOU WANT TO TRAVEL TO</h5>
-              <h1 class="home__subtitle">SPACE</h1>
-              <p class="home__text">
+              <h5 class="home__title anim__fade-in-left">
+                SO, YOU WANT TO TRAVEL TO
+              </h5>
+              <h1 class="home__subtitle anim__focus-in-expand">SPACE</h1>
+              <p class="home__text anim__fade-in">
                 Let’s face it; if you want to go to space, you might as well
                 genuinely go to outer space and not hover kind of on the edge of
                 it. Well sit back, and relax because we’ll give you a truly out
                 of this world experience!
               </p>
             </div>
-            <div class="home__button">
-              <button class="btn btn--main">EXPLORE</button>
+            <div id="btn" class="home__button anim__slide-top">
+              <button class="btn btn--main" data-section="destination">
+                EXPLORE
+              </button>
             </div>
           </div>
         </section>
@@ -72,7 +82,7 @@
         <!-- DESTINATION SECTION -->
         <section class="section destination">
           <div class="destination__container">
-            <h5 class="destination__title">
+            <h5 class="destination__title anim__fade-in-left">
               <span>01</span>Pick your destination
             </h5>
             <div class="destination__content">
@@ -83,25 +93,27 @@
               <div class="destination__tabs">
                 <nav>
                   <ul id="tabs" class="tabs">
-                    <li id="moon" class="tabs__item active">Moon</li>
-                    <li id="mars" class="tabs__item">Mars</li>
-                    <li id="europa" class="tabs__item">Europa</li>
-                    <li id="titan" class="tabs__item">Titan</li>
+                    <li data-tab="moon" class="tabs__item active">Moon</li>
+                    <li data-tab="mars" class="tabs__item">Mars</li>
+                    <li data-tab="europa" class="tabs__item">Europa</li>
+                    <li data-tab="titan" class="tabs__item">Titan</li>
                   </ul>
                 </nav>
-                <h2 class="tabs__title">Moon</h2>
-                <p class="tabs__text">
-                  See our planet as you’ve never seen it before. A perfect
-                  relaxing trip away to help regain perspective and come back
-                  refreshed. While you’re there, take in some history by
-                  visiting the Luna 2 and Apollo 11 landing sites.
-                </p>
-                <div class="tabs__details">
-                  <div class="tabs__details--distance">
-                    <span>Avg. Distance</span> 384,400 km
-                  </div>
-                  <div class="tabs__details--time">
-                    <span>Est. Travel Time</span> 3 days
+                <div data-animated-content-tabs>
+                  <h2 class="tabs__title">Moon</h2>
+                  <p class="tabs__text">
+                    See our planet as you’ve never seen it before. A perfect
+                    relaxing trip away to help regain perspective and come back
+                    refreshed. While you’re there, take in some history by
+                    visiting the Luna 2 and Apollo 11 landing sites.
+                  </p>
+                  <div class="tabs__details">
+                    <div class="tabs__details--distance">
+                      <span>Avg. Distance</span> 384,400 km
+                    </div>
+                    <div class="tabs__details--time">
+                      <span>Est. Travel Time</span> 3 days
+                    </div>
                   </div>
                 </div>
               </div>
@@ -112,22 +124,29 @@
         <!-- CREW SECTION -->
         <section class="section crew">
           <div class="crew__container">
+            <!-- Page Title -->
             <div class="crew__info">
-              <!-- Page Title -->
-              <h5 class="crew__title"><span>02</span>Meet your crew</h5>
-              <!-- Crew Title -->
-              <h5 class="crew__job">Commander</h5>
-              <h3 class="crew__name">Douglas Hurley</h3>
-              <p class="crew__bio">
-                Douglas Gerald Hurley is an American engineer, former Marine
-                Corps pilot and former NASA astronaut. He launched into space
-                for the third time as commander of Crew Dragon Demo-2.
-              </p>
+              <h5 class="crew__title anim__fade-in-left">
+                <span>02</span>Meet your crew
+              </h5>
+              <div data-animated-content-slides>
+                <!-- Crew Title -->
+                <h5 class="crew__job">Commander</h5>
+                <h3 class="crew__name">Douglas Hurley</h3>
+                <p class="crew__bio">
+                  Douglas Gerald Hurley is an American engineer, former Marine
+                  Corps pilot and former NASA astronaut. He launched into space
+                  for the third time as commander of Crew Dragon Demo-2.
+                </p>
+              </div>
               <div id="dots" class="crew__dots">
-                <button class="btn btn--dots active"></button>
-                <button class="btn btn--dots"></button>
-                <button class="btn btn--dots"></button>
-                <button class="btn btn--dots"></button>
+                <button
+                  class="btn btn--dots active"
+                  data-slide="slide-1"
+                ></button>
+                <button class="btn btn--dots" data-slide="slide-2"></button>
+                <button class="btn btn--dots" data-slide="slide-3"></button>
+                <button class="btn btn--dots" data-slide="slide-4"></button>
               </div>
             </div>
             <!-- Image on right -->
@@ -143,18 +162,38 @@
         <!-- TECHNOLOGY SECTION -->
         <section class="section technology">
           <div class="technology__container">
-            <h5 class="technology__title"><span>03</span>Space Launch 101</h5>
+            <h5 class="technology__title anim__fade-in-left">
+              <span>03</span>Space Launch 101
+            </h5>
             <div class="technology__wrapper">
               <div class="technology__content">
                 <!-- Numbers and Texts (tech component) -->
                 <nav>
                   <ul id="numbers" class="technology__numbers">
-                    <li class="technology__item btn btn--numbers active">1</li>
-                    <li class="technology__item btn btn--numbers">2</li>
-                    <li class="technology__item btn btn--numbers">3</li>
+                    <li
+                      class="technology__item btn btn--numbers active"
+                      data-no="tech-1"
+                    >
+                      1
+                    </li>
+                    <li
+                      class="technology__item btn btn--numbers"
+                      data-no="tech-2"
+                    >
+                      2
+                    </li>
+                    <li
+                      class="technology__item btn btn--numbers"
+                      data-no="tech-3"
+                    >
+                      3
+                    </li>
                   </ul>
                 </nav>
-                <article class="technology__article">
+                <article
+                  class="technology__article"
+                  data-animated-content-numbers
+                >
                   <h5 class="technology__article--sub">The terminology ...</h5>
                   <h3 class="technology__article--title">LAUNCH VEHICLE</h3>
                   <p class="technology__article--text">
@@ -169,15 +208,35 @@
               </div>
               <!-- Image on right -->
               <div class="technology__img">
+                <picture>
+                  <source
+                    media="(max-width:1024px)"
+                    srcset="/assets/technology/image-launch-vehicle-landscape.jpg"
+                  />
                 <img
                   src="/assets/technology/image-launch-vehicle-portrait.jpg"
                   alt="Launch Vehicle"
                 />
               </div>
+            </picture>
             </div>
           </div>
         </section>
       </main>
+    </div>
+
+    <div id="preload" style="display: none">
+      <img src="./assets/destination/image-europa.png" />
+      <img src="./assets/destination/image-mars.png" />
+      <img src="./assets/destination/image-moon.png" />
+      <img src="./assets/destination/image-titan.png" />
+      <img src="./assets/crew/image-anousheh-ansari.png" />
+      <img src="./assets/crew/image-douglas-hurley.png" />
+      <img src="./assets/crew/image-mark-shuttleworth.png" />
+      <img src="./assets/crew/image-victor-glover.png" />
+      <img src="./assets/technology/image-launch-vehicle-portrait.jpg" />
+      <img src="./assets/technology/image-space-capsule-portrait.jpg" />
+      <img src="./assets/technology/image-spaceport-portrait.jpg" />
     </div>
     <script src="js/app.js" defers></script>
   </body>

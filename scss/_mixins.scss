@@ -3,7 +3,7 @@ $breakpoints: (
   "phone": 375px,
   "tablet": 768px,
   "laptop": 1024px,
-  "desktop": 1280px,
+  "error": 1400px,
 ) !default;
 
 @mixin res($breakpoint) {
