@@ -4,17 +4,18 @@
 }
 
 .bg {
-  @include bg("../assets/home/background-home-desktop.jpg", cover);
-  @extend %bg-transition;
+  &--home {
+    @include bg("../assets/home/background-home-desktop.jpg", cover);
+    @extend %bg-transition;
 
-  @include res(laptop) {
-    @include bg("../assets/home/background-home-tablet.jpg", cover);
+    @include res(laptop) {
+      @include bg("../assets/home/background-home-tablet.jpg", cover);
+    }
+
+    @include res(tablet) {
+      @include bg("../assets/home/background-home-mobile.jpg", cover);
+    }
   }
-
-  @include res(tablet) {
-    @include bg("../assets/destination/background-home-mobile.jpg", cover);
-  }
-
   &--destination {
     @include bg(
       "../assets/destination/background-destination-desktop.jpg",
@@ -44,10 +45,9 @@
     @include res(laptop) {
       @include bg("../assets/crew/background-crew-tablet.jpg", cover);
     }
-  }
-
-  @include res(tablet) {
-    @include bg("../assets/crew/background-crew-mobile.jpg", cover);
+    @include res(tablet) {
+      @include bg("../assets/crew/background-crew-mobile.jpg", cover);
+    }
   }
 
   &--technology {
@@ -117,8 +117,10 @@
   @include flex(row, center, center);
   // width: 830px;
   padding: 0 12rem;
+  opacity: 1;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(81.5485px);
+  transition: opacity 1s;
 
   @include res(laptop) {
     padding: 0 7.5rem;
@@ -133,6 +135,7 @@
     z-index: 1;
     padding: 10rem 6rem 0 6rem;
     display: none;
+    opacity: 0;
   }
 
   &::before {
@@ -145,6 +148,7 @@
 
     @include res(laptop) {
       display: none;
+      opacity: 0;
     }
   }
 
@@ -421,12 +425,11 @@
     color: $color-light;
     line-height: 1.77;
     max-width: 44rem;
-    padding-bottom: 11.5rem;
+    min-height: 20rem;
 
     @include res(laptop) {
       max-width: 100%;
       margin: 0 5.5rem;
-      padding-bottom: 4rem;
     }
 
     @include res(tablet) {
@@ -437,7 +440,7 @@
 
   &__dots {
     @include flex(row, null, center);
-    margin-top: 6.3rem;
+    margin-top: 2rem;
     padding-bottom: 5rem;
 
     @include res(laptop) {
@@ -460,7 +463,6 @@
     &::after {
       @include pseudo(100%, 1px);
       background-color: $color-white;
-      bottom: 0;
       left: 0;
       z-index: 1;
       opacity: 0.25;
@@ -591,8 +593,6 @@
 
       @include res(tablet) {
         margin: 0 2.5rem;
-      }
-      @include res(tablet) {
         font-size: 1.5rem;
       }
     }

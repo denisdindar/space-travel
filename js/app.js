@@ -63,11 +63,10 @@ const navigate = (y, area) => {
     // add active class to destination tab (if clicked by main button)
     $("#destination").classList.add("active");
     // change related background on click
-    background.classList.remove(
-      "bg--destination",
-      "bg--crew",
-      "bg--technology"
-    );
+    background.classList.remove("bg--home");
+    background.classList.remove("bg--destination");
+    background.classList.remove("bg--crew");
+    background.classList.remove("bg--technology");
     background.classList.add(`bg--${clicked.dataset.section}`);
   });
 };
@@ -217,12 +216,17 @@ const closeMenu = $(".toggle--close");
 
 toggleMenu.addEventListener("click", () => {
   nav.style.display = "flex";
+  nav.style.opacity = "1";
+  nav.style.transition = "all 1s";
   closeMenu.style.display = "inline-block";
   toggleMenu.style.display = "none";
 });
 
 closeMenu.addEventListener("click", () => {
   nav.style.display = "none";
+  nav.style.opacity = "0";
+  nav.style.transition = "all 1s";
+
   closeMenu.style.display = "none";
-  toggleMenu.style.display = "none";
+  toggleMenu.style.display = "inline-block";
 });
