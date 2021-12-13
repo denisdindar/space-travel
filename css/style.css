@@ -861,27 +861,27 @@ h5 .sub {
           flex-direction: column;
 }
 /* Backgrounds */
-.bg--technology, .bg--crew, .bg--destination, .bg {
+.bg--technology, .bg--crew, .bg--destination, .bg--home {
   -webkit-transition: background 0.3s;
   -o-transition: background 0.3s;
   transition: background 0.3s;
 }
 
-.bg {
+.bg--home {
   background-image: url("../assets/home/background-home-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 @media (max-width: 1024px) {
-  .bg {
+  .bg--home {
     background-image: url("../assets/home/background-home-tablet.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
 }
 @media (max-width: 768px) {
-  .bg {
-    background-image: url("../assets/destination/background-home-mobile.jpg");
+  .bg--home {
+    background-image: url("../assets/home/background-home-mobile.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -918,7 +918,7 @@ h5 .sub {
   }
 }
 @media (max-width: 768px) {
-  .bg {
+  .bg--crew {
     background-image: url("../assets/crew/background-crew-mobile.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -1012,9 +1012,13 @@ h5 .sub {
       -ms-flex-align: center;
           align-items: center;
   padding: 0 12rem;
+  opacity: 1;
   background: rgba(255, 255, 255, 0.04);
   -webkit-backdrop-filter: blur(81.5485px);
           backdrop-filter: blur(81.5485px);
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
 }
 @media (max-width: 1024px) {
   .nav {
@@ -1043,6 +1047,7 @@ h5 .sub {
     z-index: 1;
     padding: 10rem 6rem 0 6rem;
     display: none;
+    opacity: 0;
   }
 }
 .nav::before {
@@ -1060,6 +1065,7 @@ h5 .sub {
 @media (max-width: 1024px) {
   .nav::before {
     display: none;
+    opacity: 0;
   }
 }
 .nav__item {
@@ -1392,13 +1398,12 @@ h5 .sub {
   color: var(--color-light);
   line-height: 1.77;
   max-width: 44rem;
-  padding-bottom: 11.5rem;
+  min-height: 20rem;
 }
 @media (max-width: 1024px) {
   .crew__bio {
     max-width: 100%;
     margin: 0 5.5rem;
-    padding-bottom: 4rem;
   }
 }
 @media (max-width: 768px) {
@@ -1418,7 +1423,7 @@ h5 .sub {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 6.3rem;
+  margin-top: 2rem;
   padding-bottom: 5rem;
 }
 @media (max-width: 1024px) {
@@ -1453,7 +1458,6 @@ h5 .sub {
   width: 100%;
   height: 1px;
   background-color: var(--color-white);
-  bottom: 0;
   left: 0;
   z-index: 1;
   opacity: 0.25;
@@ -1667,10 +1671,6 @@ h5 .sub {
 @media (max-width: 768px) {
   .technology__article--text {
     margin: 0 2.5rem;
-  }
-}
-@media (max-width: 768px) {
-  .technology__article--text {
     font-size: 1.5rem;
   }
 }
