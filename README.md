@@ -1,16 +1,17 @@
 # Space Travel
 
-![Screen](/design/desktop-preview.jpg "Desktop Preview")
+![Screen](/assets/preview-home.png "Desktop Preview")
+![Screen](/assets/preview-destinations.png "Desktop Preview")
 
-- Live Page: [Sunnyside Agency](https://denisdindar.github.io/sunnyside-agency/)
 
-Another challenge from Frontend Mentor. In design image, although it seems simple with basic layouts, I struggled a bit during this project because of too many variants of colors, text styles, sizes, and different spacings especially when i dont have design source. I should consider that first to focus on layout better and to start with mobile-first overflow. And much better to not work with a general reset file...
+- Live Page: [Space Travel](https://denisdindar.github.io/space-travel/)
 
-I tried to focus more on SASS shorthands and write faster and easier code with SASS.
+### "This project is a collaboration between us -Frontendmentor-, Scrimba, and Kevin Powell."
+It was not easy challange but was fun to work with beautiful design for imaginery space agency. 
 
-- Toggle menu with only CSS
-- I used the Flexbox for layout
-- Responsive on larger, medium, and smaller screens
-- Hover effects on some images and links
+- It is one-page with sections, pulled data from .JSON
+- Responsive Design for mobile,tabled and desktop
+- Written with SASS and no framework, pure JavaScript
+- Smooth transitions, sweet animations
 
-- Live Page: [Sunnyside Agency](https://denisdindar.github.io/sunnyside-agency/)
+- Live Page: [Space Travel](https://denisdindar.github.io/space-travel/)
