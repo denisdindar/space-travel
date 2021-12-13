@@ -15,3 +15,8 @@ It was not easy challange but was fun to work with beautiful design for imaginer
 - Smooth transitions, sweet animations
 
 - Live Page: [Space Travel](https://denisdindar.github.io/space-travel/)
+
+
+## Issues
+1. [Feature-Policy](https://stackoverflow.com/questions/63050916/how-to-set-feature-policy-headers-in-js) warning in Chrome Devtools
+2. [Backdrop-filter issue](https://dev.to/snkds/how-to-enable-backdrop-filter-in-firefox-2n8e]) on Firefox. Blur doesn't work in navigation background.
