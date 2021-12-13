@@ -1090,7 +1090,7 @@ h5 .sub {
     padding-bottom: 2rem;
     justify-content: center;
     order: -2;
-    margin-top: 1rem;
+    margin-top: 2.5rem;
   }
 }
 @media (max-width: 768px) {
@@ -1101,6 +1101,7 @@ h5 .sub {
 .crew__img {
   transform: translate(8rem);
   position: relative;
+  align-self: flex-end;
 }
 .crew__img::after {
   content: "";
@@ -1110,11 +1111,13 @@ h5 .sub {
   height: 1px;
   background-color: var(--color-white);
   left: 0;
+  bottom: 0;
   z-index: 1;
   opacity: 0.25;
 }
 @media (max-width: 1024px) {
   .crew__img {
+    align-self: center;
     transform: translate(0);
     display: flex;
     flex-direction: row;
